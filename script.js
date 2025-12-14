@@ -10,6 +10,11 @@ const cartCount = document.querySelector('.cart-count');
 const totalAmount = document.querySelector('.total-amount');
 const checkoutBtn = document.querySelector('.checkout-btn');
 const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+const checkoutModal = document.getElementById('checkoutModal');
+const closeCheckoutBtn = document.querySelector('.close-checkout');
+const checkoutItemsContainer = document.getElementById('checkoutItems');
+const checkoutTotalAmount = document.querySelector('.checkout-total-amount');
+const confirmCheckoutBtn = document.querySelector('.confirm-checkout-btn');
 
 // Initialize event listeners
 function init() {
@@ -27,8 +32,23 @@ function init() {
         }
     });
 
-    // Checkout button
+    // Event delegation for remove buttons
+    cartItemsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-item-btn')) {
+            const productId = e.target.dataset.productId;
+            removeFromCart(productId);
+        }
+    });
+
+    // Checkout buttons
     checkoutBtn.addEventListener('click', handleCheckout);
+    closeCheckoutBtn.addEventListener('click', closeCheckoutModal);
+    confirmCheckoutBtn.addEventListener('click', handleConfirmCheckout);
+    checkoutModal.addEventListener('click', (e) => {
+        if (e.target === checkoutModal) {
+            closeCheckoutModal();
+        }
+    });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -109,7 +129,7 @@ function updateCart() {
                     <div class="cart-item-amount">${item.amount} × ${item.quantity}</div>
                 </div>
                 <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
-                <button class="remove-item-btn" onclick="removeFromCart('${item.id}')">Remove</button>
+                <button class="remove-item-btn" data-product-id="${item.id}">Remove</button>
             </div>
         `).join('');
         checkoutBtn.disabled = false;
@@ -144,23 +164,50 @@ function closeCart() {
 function handleCheckout() {
     if (cart.length === 0) return;
 
-    // Prepare checkout message
+    // Populate checkout modal
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const itemsList = cart.map(item => 
-        `${item.name} - ${item.amount} × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`
-    ).join('\n');
-
-    alert(`Checkout Summary:\n\n${itemsList}\n\nTotal: $${total.toFixed(2)}\n\nThis will be integrated with Tebex for payment processing.`);
     
-    // In a real implementation, this would redirect to Tebex or process the payment
+    checkoutItemsContainer.innerHTML = cart.map(item => `
+        <div class="checkout-item">
+            <div>
+                <div class="checkout-item-name">${item.name}</div>
+                <div class="checkout-item-details">${item.amount} × ${item.quantity}</div>
+            </div>
+            <div class="checkout-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+    `).join('');
+    
+    checkoutTotalAmount.textContent = `$${total.toFixed(2)}`;
+    
+    // Show checkout modal
+    checkoutModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // In a real implementation, this would prepare the Tebex checkout
     console.log('Checkout initiated with cart:', cart);
     console.log('Total amount:', total);
+}
+
+// Close checkout modal
+function closeCheckoutModal() {
+    checkoutModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Handle confirm checkout
+function handleConfirmCheckout() {
+    // In a real implementation, this would redirect to Tebex payment
+    console.log('Redirecting to Tebex for payment...');
     
-    // For now, we'll just clear the cart after "checkout"
-    // cart = [];
-    // updateCart();
-    // saveCart();
-    // closeCart();
+    // For demonstration, clear cart and close modals
+    cart = [];
+    updateCart();
+    saveCart();
+    closeCheckoutModal();
+    closeCart();
+    
+    // Show success feedback
+    alert('Thank you! In production, you would be redirected to Tebex for secure payment.');
 }
 
 // Save cart to localStorage
