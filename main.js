@@ -164,7 +164,7 @@ function setupRealTimeValidation() {
     const registerEmail = document.getElementById('register-email');
     
     loginEmail.addEventListener('blur', () => {
-        if (loginEmail.value && !loginEmail.value.trim()) {
+        if (!loginEmail.value.trim()) {
             showError('login-email', 'Email or username is required');
         } else {
             clearError('login-email');
