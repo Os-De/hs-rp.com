@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HS-RP Shop - FiveM Currency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">HS-RP Shop</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#cart" class="cart-btn">
+                            Cart <span class="cart-count">0</span>
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to HS-RP Shop</h2>
+                <p class="hero-subtitle">Get your FiveM in-game currency now!</p>
+                <p class="hero-description">Purchase Gold, Silver, and Diamond currency to enhance your roleplay experience</p>
+                <a href="#shop" class="cta-button">Browse Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop" id="shop">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Choose your preferred currency package</p>
+            
+            <div class="products-grid">
+                <!-- Gold Products -->
+                <div class="product-card" data-currency="gold">
+                    <div class="product-badge gold-badge">Popular</div>
+                    <div class="product-icon">💰</div>
+                    <h3 class="product-title">Gold Starter Pack</h3>
+                    <p class="product-description">Perfect for beginners</p>
+                    <div class="product-amount">1,000 Gold</div>
+                    <div class="product-price">$4.99</div>
+                    <button class="add-to-cart-btn" data-product="gold-starter" data-price="4.99" data-amount="1,000 Gold">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-currency="gold">
+                    <div class="product-icon">💰</div>
+                    <h3 class="product-title">Gold Premium Pack</h3>
+                    <p class="product-description">Best value for money</p>
+                    <div class="product-amount">5,000 Gold</div>
+                    <div class="product-price">$19.99</div>
+                    <button class="add-to-cart-btn" data-product="gold-premium" data-price="19.99" data-amount="5,000 Gold">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-currency="gold">
+                    <div class="product-icon">💰</div>
+                    <h3 class="product-title">Gold Elite Pack</h3>
+                    <p class="product-description">For serious players</p>
+                    <div class="product-amount">10,000 Gold</div>
+                    <div class="product-price">$34.99</div>
+                    <button class="add-to-cart-btn" data-product="gold-elite" data-price="34.99" data-amount="10,000 Gold">Add to Cart</button>
+                </div>
+
+                <!-- Silver Products -->
+                <div class="product-card" data-currency="silver">
+                    <div class="product-icon">🪙</div>
+                    <h3 class="product-title">Silver Starter Pack</h3>
+                    <p class="product-description">Start your journey</p>
+                    <div class="product-amount">2,000 Silver</div>
+                    <div class="product-price">$2.99</div>
+                    <button class="add-to-cart-btn" data-product="silver-starter" data-price="2.99" data-amount="2,000 Silver">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-currency="silver">
+                    <div class="product-icon">🪙</div>
+                    <h3 class="product-title">Silver Premium Pack</h3>
+                    <p class="product-description">Great for daily use</p>
+                    <div class="product-amount">10,000 Silver</div>
+                    <div class="product-price">$9.99</div>
+                    <button class="add-to-cart-btn" data-product="silver-premium" data-price="9.99" data-amount="10,000 Silver">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-currency="silver">
+                    <div class="product-icon">🪙</div>
+                    <h3 class="product-title">Silver Elite Pack</h3>
+                    <p class="product-description">Maximum silver savings</p>
+                    <div class="product-amount">25,000 Silver</div>
+                    <div class="product-price">$19.99</div>
+                    <button class="add-to-cart-btn" data-product="silver-elite" data-price="19.99" data-amount="25,000 Silver">Add to Cart</button>
+                </div>
+
+                <!-- Diamond Products -->
+                <div class="product-card premium" data-currency="diamond">
+                    <div class="product-badge diamond-badge">Exclusive</div>
+                    <div class="product-icon">💎</div>
+                    <h3 class="product-title">Diamond Starter Pack</h3>
+                    <p class="product-description">Premium currency</p>
+                    <div class="product-amount">100 Diamonds</div>
+                    <div class="product-price">$9.99</div>
+                    <button class="add-to-cart-btn" data-product="diamond-starter" data-price="9.99" data-amount="100 Diamonds">Add to Cart</button>
+                </div>
+
+                <div class="product-card premium" data-currency="diamond">
+                    <div class="product-badge diamond-badge">Best Deal</div>
+                    <div class="product-icon">💎</div>
+                    <h3 class="product-title">Diamond Premium Pack</h3>
+                    <p class="product-description">Most popular choice</p>
+                    <div class="product-amount">500 Diamonds</div>
+                    <div class="product-price">$39.99</div>
+                    <button class="add-to-cart-btn" data-product="diamond-premium" data-price="39.99" data-amount="500 Diamonds">Add to Cart</button>
+                </div>
+
+                <div class="product-card premium" data-currency="diamond">
+                    <div class="product-badge diamond-badge">Ultimate</div>
+                    <div class="product-icon">💎</div>
+                    <h3 class="product-title">Diamond Elite Pack</h3>
+                    <p class="product-description">The ultimate package</p>
+                    <div class="product-amount">1,000 Diamonds</div>
+                    <div class="product-price">$69.99</div>
+                    <button class="add-to-cart-btn" data-product="diamond-elite" data-price="69.99" data-amount="1,000 Diamonds">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-amount">$0.00</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>Checkout Summary</h2>
+                <button class="close-checkout">&times;</button>
+            </div>
+            <div class="checkout-body">
+                <div id="checkoutItems"></div>
+                <div class="checkout-total">
+                    <span>Total Amount:</span>
+                    <span class="checkout-total-amount">$0.00</span>
+                </div>
+            </div>
+            <div class="checkout-footer">
+                <p class="checkout-note">This will be integrated with Tebex for secure payment processing.</p>
+                <button class="confirm-checkout-btn">Complete Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 HS-RP Shop. All rights reserved.</p>
+                <p class="footer-note">Ready for Tebex integration</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
