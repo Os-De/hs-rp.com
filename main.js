@@ -65,8 +65,8 @@ function handleLogin(e) {
     if (!password.value.trim()) {
         showError('login-password', 'Password is required');
         isValid = false;
-    } else if (password.value.length < 6) {
-        showError('login-password', 'Password must be at least 6 characters');
+    } else if (password.value.length < 8) {
+        showError('login-password', 'Password must be at least 8 characters');
         isValid = false;
     }
     
